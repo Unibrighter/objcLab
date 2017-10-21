@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "RLHyperView.h"
 
+@import MapKit;
 @interface AppDelegate ()
 
 @end
@@ -16,7 +18,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+	
+//	self.window.rootViewController = [UIViewController new];
+	
+	RLHyperView * hyperView = [[RLHyperView alloc] initWithFrame:self.window.frame];
+	hyperView.backgroundColor = [UIColor whiteColor];
+	
+	[self.window addSubview:hyperView];
+	self.window.rootViewController=[UIViewController new];
+	[self.window makeKeyAndVisible];
+	
+
+//	UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, (self.window.bounds.size.width)/2, (self.window.bounds.size.height)/2)];
+//	imageView.contentMode = UIViewContentModeScaleAspectFit;
+//	imageView.image = vaultBoy;
+//	imageView.center = self.window.center;
+//	[self.window addSubview:imageView];
+	
+
+	
 	return YES;
 }
 
@@ -46,6 +67,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark - Drawing Method
+- (void) centraCircle{
+	
+}
+
+
+
 
 
 @end

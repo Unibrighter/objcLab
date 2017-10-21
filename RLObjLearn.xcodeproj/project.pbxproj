@@ -14,6 +14,7 @@
 		4C5EF4B41F9ACFA200906AFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5EF4B21F9ACFA200906AFD /* LaunchScreen.storyboard */; };
 		4C5EF4BF1F9ACFA200906AFD /* RLObjLearnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4BE1F9ACFA200906AFD /* RLObjLearnTests.m */; };
 		4C5EF4CA1F9ACFA300906AFD /* RLObjLearnUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4C91F9ACFA300906AFD /* RLObjLearnUITests.m */; };
+		4C5EF4D91F9AD70C00906AFD /* RLHyperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4D81F9AD70C00906AFD /* RLHyperView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		4C5EF4C51F9ACFA300906AFD /* RLObjLearnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RLObjLearnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5EF4C91F9ACFA300906AFD /* RLObjLearnUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLObjLearnUITests.m; sourceTree = "<group>"; };
 		4C5EF4CB1F9ACFA300906AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C5EF4D71F9AD70C00906AFD /* RLHyperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLHyperView.h; sourceTree = "<group>"; };
+		4C5EF4D81F9AD70C00906AFD /* RLHyperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLHyperView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 		4C5EF4A31F9ACFA200906AFD /* RLObjLearn */ = {
 			isa = PBXGroup;
 			children = (
+				4C5EF4D71F9AD70C00906AFD /* RLHyperView.h */,
+				4C5EF4D81F9AD70C00906AFD /* RLHyperView.m */,
 				4C5EF4A71F9ACFA200906AFD /* AppDelegate.h */,
 				4C5EF4A81F9ACFA200906AFD /* AppDelegate.m */,
 				4C5EF4AD1F9ACFA200906AFD /* Main.storyboard */,
@@ -270,6 +275,7 @@
 			files = (
 				4C5EF4A91F9ACFA200906AFD /* AppDelegate.m in Sources */,
 				4C5EF4A61F9ACFA200906AFD /* main.m in Sources */,
+				4C5EF4D91F9AD70C00906AFD /* RLHyperView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
