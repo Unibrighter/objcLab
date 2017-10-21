@@ -32,24 +32,41 @@
 	for(;radius <= _boundingBoxWidth;radius += _boundingBoxHeight /10 ){
 		[innerPie moveToPoint:CGPointMake(centerPoint.x-radius,centerPoint.y)];
 		[innerPie addArcWithCenter:centerPoint radius:radius startAngle: -M_PI endAngle:M_PI clockwise:YES];
-
 	}
-	UIImage * vaultBoy = [UIImage imageNamed:@"VaultBoy"];
-	
 	[targetColor setStroke];
 	[innerPie stroke];
 	
+	//2. gradiant
+	CGContextRef currentContext = UIGraphicsGetCurrentContext();
+	currentContext = UIGraphicsGetCurrentContext();
+	CGContextSaveGState(currentContext);
+	UIBezierPath * gradientPath = [UIBezierPath new];
+	[gradientPath moveToPoint:CGPointMake(0.5*rect.size.width , 0.333*rect.size.height)];
+	[gradientPath addLineToPoint:CGPointMake(0.25*rect.size.width , 0.667*rect.size.height)];
+	[gradientPath addLineToPoint:CGPointMake(0.75*rect.size.width , 0.667*rect.size.height)];
+	[gradientPath addLineToPoint:CGPointMake(0.5*rect.size.width , 0.333*rect.size.height)];
+	[gradientPath addClip];
+	CGFloat location[2] = {0,1};
+	CGFloat components [8] = {0,1,0,1,0,1,1,1};
+	CGGradientRef gradient = CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(), components , location, 2);
+	CGContextDrawLinearGradient(currentContext, gradient, CGPointMake(0.5*rect.size.width , 0.333*rect.size.height), CGPointMake(0.25*rect.size.width , 0.667*rect.size.height), 0);
+	CGContextRestoreGState(currentContext);
+	
+	//3. image and shadow
+	UIImage * vaultBoy = [UIImage imageNamed:@"VaultBoy"];
 	CGFloat scaleRatio = 0.5*rect.size.width/vaultBoy.size.width;
 	UIImage * scaledImage = [UIImage imageWithCGImage:vaultBoy.CGImage scale:1.0/scaleRatio orientation:UIImageOrientationUp];
 	
 	CGRect targetRect = CGRectMake(0.5*(rect.size.width - scaledImage.size.width),
 								   0.5*(rect.size.height - scaledImage.size.height),
 								   scaledImage.size.width, scaledImage.size.height);
-	CGContextRef currentContext = UIGraphicsGetCurrentContext();
+
 	CGContextSaveGState(currentContext);
 	CGContextSetShadow(currentContext, CGSizeMake(5, 5), 3);
 	[scaledImage drawInRect:targetRect];
 	CGContextRestoreGState(currentContext);
+	
+
 	
 }
 
