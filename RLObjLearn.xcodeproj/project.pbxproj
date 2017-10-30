@@ -15,6 +15,8 @@
 		4C5EF4BF1F9ACFA200906AFD /* RLObjLearnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4BE1F9ACFA200906AFD /* RLObjLearnTests.m */; };
 		4C5EF4CA1F9ACFA300906AFD /* RLObjLearnUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4C91F9ACFA300906AFD /* RLObjLearnUITests.m */; };
 		4C5EF4D91F9AD70C00906AFD /* RLHyperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4D81F9AD70C00906AFD /* RLHyperView.m */; };
+		4C5EF4DC1FA5F00700906AFD /* RLContainerDrawerMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4DB1FA5F00700906AFD /* RLContainerDrawerMainVC.m */; };
+		4C5EF4DF1FA5F6F900906AFD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5EF4DE1FA5F6F900906AFD /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,9 @@
 		4C5EF4CB1F9ACFA300906AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C5EF4D71F9AD70C00906AFD /* RLHyperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLHyperView.h; sourceTree = "<group>"; };
 		4C5EF4D81F9AD70C00906AFD /* RLHyperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLHyperView.m; sourceTree = "<group>"; };
+		4C5EF4DA1FA5F00700906AFD /* RLContainerDrawerMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLContainerDrawerMainVC.h; sourceTree = "<group>"; };
+		4C5EF4DB1FA5F00700906AFD /* RLContainerDrawerMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLContainerDrawerMainVC.m; sourceTree = "<group>"; };
+		4C5EF4DE1FA5F6F900906AFD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5EF4DF1FA5F6F900906AFD /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +91,7 @@
 				4C5EF4BD1F9ACFA200906AFD /* RLObjLearnTests */,
 				4C5EF4C81F9ACFA300906AFD /* RLObjLearnUITests */,
 				4C5EF4A21F9ACFA200906AFD /* Products */,
+				4C5EF4DD1FA5F6F900906AFD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +108,8 @@
 		4C5EF4A31F9ACFA200906AFD /* RLObjLearn */ = {
 			isa = PBXGroup;
 			children = (
+				4C5EF4DA1FA5F00700906AFD /* RLContainerDrawerMainVC.h */,
+				4C5EF4DB1FA5F00700906AFD /* RLContainerDrawerMainVC.m */,
 				4C5EF4D71F9AD70C00906AFD /* RLHyperView.h */,
 				4C5EF4D81F9AD70C00906AFD /* RLHyperView.m */,
 				4C5EF4A71F9ACFA200906AFD /* AppDelegate.h */,
@@ -138,6 +147,14 @@
 				4C5EF4CB1F9ACFA300906AFD /* Info.plist */,
 			);
 			path = RLObjLearnUITests;
+			sourceTree = "<group>";
+		};
+		4C5EF4DD1FA5F6F900906AFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C5EF4DE1FA5F6F900906AFD /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5EF4DC1FA5F00700906AFD /* RLContainerDrawerMainVC.m in Sources */,
 				4C5EF4A91F9ACFA200906AFD /* AppDelegate.m in Sources */,
 				4C5EF4A61F9ACFA200906AFD /* main.m in Sources */,
 				4C5EF4D91F9AD70C00906AFD /* RLHyperView.m in Sources */,
@@ -507,6 +525,7 @@
 				4C5EF4D01F9ACFA300906AFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C5EF4D11F9ACFA300906AFD /* Build configuration list for PBXNativeTarget "RLObjLearnTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +534,7 @@
 				4C5EF4D31F9ACFA300906AFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C5EF4D41F9ACFA300906AFD /* Build configuration list for PBXNativeTarget "RLObjLearnUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +543,7 @@
 				4C5EF4D61F9ACFA300906AFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -6,6 +6,82 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Container Drawer MainVC-->
+        <scene sceneID="Ayo-2u-fcG">
+            <objects>
+                <viewController storyboardIdentifier="containerDrawerMainVC" id="2eV-yJ-EFP" customClass="RLContainerDrawerMainVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7dT-Uh-Wg3"/>
+                        <viewControllerLayoutGuide type="bottom" id="vq1-sa-aWb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xeu-cr-xGg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HaA-0J-vkn">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </mapView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6n-Gg-XL4">
+                                <rect key="frame" x="0.0" y="307" width="375" height="360"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="PU1-3Z-LAq"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="BtN-Th-wKp" kind="embed" id="qLN-JA-z5G"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-dP-fdr">
+                                <rect key="frame" x="138" y="28" width="98" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OM7-tz-7XJ"/>
+                                </constraints>
+                                <state key="normal" title="Come out!"/>
+                                <connections>
+                                    <action selector="comeOutBtnClicked:" destination="2eV-yJ-EFP" eventType="touchUpInside" id="o8Y-UJ-fVm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mIZ-dP-fdr" firstAttribute="top" secondItem="7dT-Uh-Wg3" secondAttribute="bottom" constant="8" id="0F8-Vr-BoN"/>
+                            <constraint firstItem="mIZ-dP-fdr" firstAttribute="centerX" secondItem="Xeu-cr-xGg" secondAttribute="centerX" id="3o8-6n-zdW"/>
+                            <constraint firstItem="vq1-sa-aWb" firstAttribute="top" secondItem="HaA-0J-vkn" secondAttribute="bottom" id="7PN-DL-bsE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HaA-0J-vkn" secondAttribute="trailing" id="Ddn-1q-nIp"/>
+                            <constraint firstAttribute="trailing" secondItem="a6n-Gg-XL4" secondAttribute="trailing" id="Vms-tN-NEi"/>
+                            <constraint firstItem="HaA-0J-vkn" firstAttribute="leading" secondItem="Xeu-cr-xGg" secondAttribute="leadingMargin" id="ajD-oz-eSB"/>
+                            <constraint firstItem="a6n-Gg-XL4" firstAttribute="top" secondItem="7dT-Uh-Wg3" secondAttribute="bottom" constant="287" id="cVc-o0-B0C"/>
+                            <constraint firstItem="a6n-Gg-XL4" firstAttribute="leading" secondItem="Xeu-cr-xGg" secondAttribute="leading" id="r81-ea-kVg"/>
+                            <constraint firstItem="HaA-0J-vkn" firstAttribute="top" secondItem="7dT-Uh-Wg3" secondAttribute="bottom" id="wlb-hy-nsg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerTopOffsetConstraint" destination="cVc-o0-B0C" id="cxq-G1-4k9"/>
+                        <outlet property="containerView" destination="a6n-Gg-XL4" id="osH-bX-gI8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOQ-v8-9o4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="469.60000000000002" y="-568.06596701649175"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ps9-10-ZcJ">
+            <objects>
+                <viewController id="BtN-Th-wKp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S2o-c9-bs1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uDI-N3-wKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1279" y="-421"/>
+        </scene>
+    </scenes>
 </document>

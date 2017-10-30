@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RLHyperView.h"
+#import "RLContainerDrawerMainVC.h"
 
 @import MapKit;
 @interface AppDelegate ()
@@ -25,8 +26,11 @@
 	RLHyperView * hyperView = [[RLHyperView alloc] initWithFrame:self.window.frame];
 	hyperView.backgroundColor = [UIColor whiteColor];
 	
-	[self.window addSubview:hyperView];
 	self.window.rootViewController=[UIViewController new];
+//	self.window.rootViewController.view = hyperView;
+	
+	[self.window addSubview:hyperView];
+	
 	[self.window makeKeyAndVisible];
 	
 
@@ -37,6 +41,17 @@
 //	[self.window addSubview:imageView];
 	
 
+	self.window.subviews[1].userInteractionEnabled = NO;
+	
+	
+	[RLContainerDrawerMainVC presentContainerDrawerMainVCAsRootControllerForWindow:self.window];
+	
+	
+	
+	
+	
+	
+	
 	
 	return YES;
 }

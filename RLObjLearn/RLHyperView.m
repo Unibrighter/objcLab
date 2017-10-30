@@ -13,6 +13,7 @@
 @property (readonly) CGFloat boundingBoxHeight;
 @property (readonly) CGFloat boundingBoxWidth;
 
+@property CGGradientRef gradient;
 @end
 
 @implementation RLHyperView
@@ -46,10 +47,10 @@
 	[gradientPath addLineToPoint:CGPointMake(0.75*rect.size.width , 0.667*rect.size.height)];
 	[gradientPath addLineToPoint:CGPointMake(0.5*rect.size.width , 0.333*rect.size.height)];
 	[gradientPath addClip];
-	CGFloat location[2] = {0,1};
-	CGFloat components [8] = {0,1,0,1,0,1,1,1};
-	CGGradientRef gradient = CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(), components , location, 2);
-	CGContextDrawLinearGradient(currentContext, gradient, CGPointMake(0.5*rect.size.width , 0.333*rect.size.height), CGPointMake(0.25*rect.size.width , 0.667*rect.size.height), 0);
+	if(!_gradient){
+		_gradient = [self getRandomGradientRef];
+	}
+	CGContextDrawLinearGradient(currentContext, _gradient, CGPointMake(0.5*rect.size.width , 0.333*rect.size.height), CGPointMake(0.25*rect.size.width , 0.667*rect.size.height), 0);
 	CGContextRestoreGState(currentContext);
 	
 	//3. image and shadow
@@ -66,8 +67,34 @@
 	[scaledImage drawInRect:targetRect];
 	CGContextRestoreGState(currentContext);
 	
+}
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+	NSLog(@"View touched!");
+	_gradient = [self getRandomGradientRef];
+	[self setNeedsDisplay];
+}
+
+-(CGGradientRef)getRandomGradientRef{
+	CGFloat location[2] = {0,1};
+	CGFloat r1 = (arc4random() % 100) /100.0;
+	CGFloat g1 = (arc4random() % 100) /100.0;
+	CGFloat b1 = (arc4random() % 100) /100.0;
 	
+	CGFloat r2 = (arc4random() % 100) /100.0;
+	CGFloat g2 = (arc4random() % 100) /100.0;
+	CGFloat b2 = (arc4random() % 100) /100.0;	
+	CGFloat components [8] = {r1,g1,b1,1,r2,g2,b2,1};
+	CGGradientRef gradient = CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(), components , location, 2);
+	return gradient;
+}
+
+
+-(UIColor *)getRandomColor{
+	CGFloat r = arc4random() % 100 /100;
+	CGFloat g = arc4random() % 100 /100;
+	CGFloat b = arc4random() % 100 /100;
+	return [UIColor colorWithRed:r green:g blue:b alpha:1];
 }
 
 
