@@ -7,11 +7,14 @@
 //
 
 #import "RLContainerDrawerMainVC.h"
+#import "RLPinAnnotation.h"
+#import <MapKit/MapKit.h>
 
-@interface RLContainerDrawerMainVC ()
+@interface RLContainerDrawerMainVC () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerTopOffsetConstraint;
+@property (weak, nonatomic) IBOutlet MKMapView *mainMapView;
 @property CGFloat originalTopOffsetValue;
 @end
 
@@ -28,6 +31,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 	[self setupGestures];
+	[self loadMapContent];
+	
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +49,18 @@
 	
 }
 
-
+#pragma - Map Annotation
+- (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
+	MKAnnotationView * view = [mapView dequeueReusableAnnotationViewWithIdentifier:@"droppedPin"];
+	RLPinAnnotation * rlAnnotation = (RLPinAnnotation *) annotation;
+	if(view){
+		view.annotation = rlAnnotation;
+	}else{
+		view = rlAnnotation.annotationView;
+	}
+	view.draggable = YES;
+	return view;
+}
 
 #pragma - Helper Functions
 -(void)setupGestures{
@@ -82,6 +98,25 @@
 		_containerTopOffsetConstraint.constant = _originalTopOffsetValue + offsetY;
 		[self.view layoutIfNeeded];
 	}
+}
+
+- (void)mapView:(MKMapView *)mapView
+ annotationView:(MKAnnotationView *)annotationView
+didChangeDragState:(MKAnnotationViewDragState)newState
+   fromOldState:(MKAnnotationViewDragState)oldState
+{
+	if (newState == MKAnnotationViewDragStateEnding)
+	{
+		CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
+		NSLog(@"Pin dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
+	}
+}
+
+
+-(void)loadMapContent{
+	RLPinAnnotation * tmpAnnotation = [[RLPinAnnotation alloc] initWithCoordinate2D:CLLocationCoordinate2DMake(-35,144) Title:@"heck" andSubtitle:@"dick"];
+	[_mainMapView addAnnotation:tmpAnnotation];
+	_mainMapView.delegate = self;
 }
 
 @end

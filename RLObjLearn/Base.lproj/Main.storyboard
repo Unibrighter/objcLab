@@ -35,8 +35,8 @@
                                     <segue destination="BtN-Th-wKp" kind="embed" id="qLN-JA-z5G"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-dP-fdr">
-                                <rect key="frame" x="138" y="28" width="98" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-dP-fdr">
+                                <rect key="frame" x="151" y="28" width="72" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="OM7-tz-7XJ"/>
@@ -63,6 +63,7 @@
                     <connections>
                         <outlet property="containerTopOffsetConstraint" destination="cVc-o0-B0C" id="cxq-G1-4k9"/>
                         <outlet property="containerView" destination="a6n-Gg-XL4" id="osH-bX-gI8"/>
+                        <outlet property="mainMapView" destination="HaA-0J-vkn" id="hYa-uP-75q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOQ-v8-9o4" userLabel="First Responder" sceneMemberID="firstResponder"/>
