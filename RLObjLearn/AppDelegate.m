@@ -20,38 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-	
-//	self.window.rootViewController = [UIViewController new];
-	
-	RLHyperView * hyperView = [[RLHyperView alloc] initWithFrame:self.window.frame];
-	hyperView.backgroundColor = [UIColor whiteColor];
-	
-	self.window.rootViewController=[UIViewController new];
-//	self.window.rootViewController.view = hyperView;
-	
-	[self.window addSubview:hyperView];
-	
-	[self.window makeKeyAndVisible];
-	
-
-//	UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, (self.window.bounds.size.width)/2, (self.window.bounds.size.height)/2)];
-//	imageView.contentMode = UIViewContentModeScaleAspectFit;
-//	imageView.image = vaultBoy;
-//	imageView.center = self.window.center;
-//	[self.window addSubview:imageView];
-	
-
-	self.window.subviews[1].userInteractionEnabled = NO;
-	
-	
-	[RLContainerDrawerMainVC presentContainerDrawerMainVCAsRootControllerForWindow:self.window];
-	
-	
-	
-	
-	
-	
-	
+//	[self slideView];
+	[self freeCameraView];
 	
 	return YES;
 }
@@ -84,13 +54,87 @@
 }
 
 
-#pragma mark - Drawing Method
-- (void) centraCircle{
+#pragma mark - UIScrollView Exercise
+- (void) slideView{
 	
+	RLHyperView * hyperView1 = [[RLHyperView alloc]init];
+	RLHyperView * hyperView2 = [[RLHyperView alloc] init];
+	
+	
+	CGRect cameraFrame = [UIScreen  mainScreen].bounds;
+	CGRect canvasFrame = [UIScreen mainScreen].bounds;
+	canvasFrame.size.width *=2;
+//	canvasFrame.size.width *=2;
+	
+	
+	hyperView1.frame = cameraFrame;
+	cameraFrame.origin.x = [UIScreen mainScreen].bounds.size.width;
+	hyperView2.frame = cameraFrame;
+	
+	UIScrollView * scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen  mainScreen].bounds];
+	scrollView.contentSize = canvasFrame.size;
+	[scrollView addSubview:hyperView1];
+	[scrollView addSubview:hyperView2];
+	
+	[scrollView setPagingEnabled:YES];
+	
+	UIViewController * rootVC = [UIViewController new];
+	[rootVC.view addSubview:scrollView];
+//	hyperView1.userInteractionEnabled =NO;
+//	hyperView2.userInteractionEnabled = NO;
+	scrollView.scrollEnabled = YES;
+	[self.window setRootViewController:rootVC];
+	[self.window makeKeyAndVisible];
+
+}
+
+- (void) freeCameraView{
+	RLHyperView * hyperView1 = [[RLHyperView alloc]init];
+	CGRect cameraFrame = [UIScreen  mainScreen].bounds;
+	CGRect canvasFrame = [UIScreen mainScreen].bounds;
+	canvasFrame.size.width *=2;
+	canvasFrame.size.height *=2;
+	
+	
+	UIScrollView * scrollView = [[UIScrollView alloc] initWithFrame:cameraFrame];
+	hyperView1.frame = canvasFrame;	
+	scrollView.contentSize = canvasFrame.size;
+	[scrollView addSubview:hyperView1];
+	
+	UIViewController * rootVC = [UIViewController new];
+	[rootVC.view addSubview:scrollView];
+	[self.window setRootViewController:rootVC];
+	[self.window makeKeyAndVisible];
+
 }
 
 
-
+- (void) singleHyperViewTest{
+	//	self.window.rootViewController = [UIViewController new];
+	
+	RLHyperView * hyperView = [[RLHyperView alloc] initWithFrame:self.window.frame];
+	hyperView.backgroundColor = [UIColor whiteColor];
+	
+	self.window.rootViewController=[UIViewController new];
+	//	self.window.rootViewController.view = hyperView;
+	
+	[self.window addSubview:hyperView];
+	
+	[self.window makeKeyAndVisible];
+	
+	
+	//	UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, (self.window.bounds.size.width)/2, (self.window.bounds.size.height)/2)];
+	//	imageView.contentMode = UIViewContentModeScaleAspectFit;
+	//	imageView.image = vaultBoy;
+	//	imageView.center = self.window.center;
+	//	[self.window addSubview:imageView];
+	
+	
+	self.window.subviews[1].userInteractionEnabled = NO;
+	
+	
+	//	[RLContainerDrawerMainVC presentContainerDrawerMainVCAsRootControllerForWindow:self.window];
+}
 
 
 @end
