@@ -11,6 +11,7 @@
 #import "RLContainerDrawerMainVC.h"
 #import "RLHyperViewController.h"
 #import "RLReminderViewController.h"
+#import <UserNotifications/UserNotifications.h>
 
 @import MapKit;
 @interface AppDelegate ()
@@ -25,7 +26,7 @@
 //	[self slideView];
 //	[self freeCameraView];
     [self tabViewController];
-	
+
 	return YES;
 }
 
@@ -58,10 +59,20 @@
 
 #pragma mark - UIViewController Ex
 -(void)tabViewController{
+
     
     RLHyperViewController * hyperVC = [[RLHyperViewController alloc]init];
     
     RLReminderViewController * reminderVC = [[RLReminderViewController alloc] initWithNibName:@"RLReminderViewController" bundle:[NSBundle mainBundle]];
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert)
+                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                              if (!error) {
+                                  NSLog(@"request authorization succeeded!");
+                                  
+                                  center.delegate = reminderVC;
+                              }
+                          }];
     
     UITabBarController * tabViewController = [[UITabBarController alloc] init];
     tabViewController.viewControllers = @[hyperVC,reminderVC];
