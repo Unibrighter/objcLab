@@ -7,6 +7,7 @@
 //
 
 #import "RLHyperViewController.h"
+#import "RLHyperView.h"
 
 @interface RLHyperViewController()
 
@@ -17,7 +18,10 @@
 @implementation RLHyperViewController
 
 -(void)loadView{
-	
+    CGRect targetFrame = [UIScreen mainScreen].bounds;
+    RLHyperView * backgroundView = [[RLHyperView alloc]initWithFrame:targetFrame];
+    
+    self.view = backgroundView;
 }
 
 @end

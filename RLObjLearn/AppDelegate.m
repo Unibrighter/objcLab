@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "RLHyperView.h"
 #import "RLContainerDrawerMainVC.h"
+#import "RLHyperViewController.h"
+#import "RLReminderViewController.h"
 
 @import MapKit;
 @interface AppDelegate ()
@@ -21,7 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //	[self slideView];
-	[self freeCameraView];
+//	[self freeCameraView];
+    [self hyperViewControllerAndReminderController];
 	
 	return YES;
 }
@@ -52,6 +55,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - UIViewController Ex
+-(void)hyperViewControllerAndReminderController{
+    
+    RLHyperViewController * hyperVC = [[RLHyperViewController alloc]init];
+    
+    RLReminderViewController * reminderVC = [[RLReminderViewController alloc] initWithNibName:@"RLReminderViewController" bundle:[NSBundle mainBundle]];
+    [self.window setRootViewController:reminderVC];
+    [self.window makeKeyAndVisible];
+}
+
+
 
 
 #pragma mark - UIScrollView Exercise
@@ -108,7 +123,7 @@
 
 }
 
-
+#pragma mark - Single View Ex
 - (void) singleHyperViewTest{
 	//	self.window.rootViewController = [UIViewController new];
 	

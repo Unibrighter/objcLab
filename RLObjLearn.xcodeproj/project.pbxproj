@@ -19,6 +19,8 @@
 		4C5EF4DC1FA5F00700906AFD /* RLContainerDrawerMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4DB1FA5F00700906AFD /* RLContainerDrawerMainVC.m */; };
 		4C5EF4DF1FA5F6F900906AFD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5EF4DE1FA5F6F900906AFD /* MapKit.framework */; };
 		4C5EF4E21FA7478B00906AFD /* RLPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4E11FA7478B00906AFD /* RLPinAnnotation.m */; };
+		4CBE18561FC15D6700ED19E3 /* RLReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE18541FC15D6700ED19E3 /* RLReminderViewController.m */; };
+		4CBE185B1FC1604E00ED19E3 /* RLReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBE185A1FC1604E00ED19E3 /* RLReminderViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,9 @@
 		4C5EF4DE1FA5F6F900906AFD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4C5EF4E01FA7478B00906AFD /* RLPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLPinAnnotation.h; sourceTree = "<group>"; };
 		4C5EF4E11FA7478B00906AFD /* RLPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLPinAnnotation.m; sourceTree = "<group>"; };
+		4CBE18531FC15D6700ED19E3 /* RLReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLReminderViewController.h; sourceTree = "<group>"; };
+		4CBE18541FC15D6700ED19E3 /* RLReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLReminderViewController.m; sourceTree = "<group>"; };
+		4CBE185A1FC1604E00ED19E3 /* RLReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLReminderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +98,8 @@
 		4C5305EE1FB19C3E00539D8B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4C5305EF1FB19C6000539D8B /* RLHyperViewController.h */,
-				4C5305F01FB19C6000539D8B /* RLHyperViewController.m */,
+				4CBE18521FC15D2F00ED19E3 /* ReminderViewController */,
+				4CBE18511FC15D2100ED19E3 /* HyperViewController */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -173,6 +178,25 @@
 				4C5EF4DE1FA5F6F900906AFD /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CBE18511FC15D2100ED19E3 /* HyperViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4C5305EF1FB19C6000539D8B /* RLHyperViewController.h */,
+				4C5305F01FB19C6000539D8B /* RLHyperViewController.m */,
+			);
+			name = HyperViewController;
+			sourceTree = "<group>";
+		};
+		4CBE18521FC15D2F00ED19E3 /* ReminderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4CBE18531FC15D6700ED19E3 /* RLReminderViewController.h */,
+				4CBE18541FC15D6700ED19E3 /* RLReminderViewController.m */,
+				4CBE185A1FC1604E00ED19E3 /* RLReminderViewController.xib */,
+			);
+			name = ReminderViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBE185B1FC1604E00ED19E3 /* RLReminderViewController.xib in Resources */,
 				4C5EF4B41F9ACFA200906AFD /* LaunchScreen.storyboard in Resources */,
 				4C5EF4B11F9ACFA200906AFD /* Assets.xcassets in Resources */,
 				4C5EF4AF1F9ACFA200906AFD /* Main.storyboard in Resources */,
@@ -310,6 +335,7 @@
 			files = (
 				4C5EF4DC1FA5F00700906AFD /* RLContainerDrawerMainVC.m in Sources */,
 				4C5EF4A91F9ACFA200906AFD /* AppDelegate.m in Sources */,
+				4CBE18561FC15D6700ED19E3 /* RLReminderViewController.m in Sources */,
 				4C5EF4E21FA7478B00906AFD /* RLPinAnnotation.m in Sources */,
 				4C5EF4A61F9ACFA200906AFD /* main.m in Sources */,
 				4C5EF4D91F9AD70C00906AFD /* RLHyperView.m in Sources */,
