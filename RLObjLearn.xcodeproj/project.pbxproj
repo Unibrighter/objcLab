@@ -11,7 +11,6 @@
 		4C5EF4A61F9ACFA200906AFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4A51F9ACFA200906AFD /* main.m */; };
 		4C5EF4A91F9ACFA200906AFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4A81F9ACFA200906AFD /* AppDelegate.m */; };
 		4C5EF4AF1F9ACFA200906AFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5EF4AD1F9ACFA200906AFD /* Main.storyboard */; };
-		4C5EF4B11F9ACFA200906AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5EF4B01F9ACFA200906AFD /* Assets.xcassets */; };
 		4C5EF4B41F9ACFA200906AFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5EF4B21F9ACFA200906AFD /* LaunchScreen.storyboard */; };
 		4C5EF4BF1F9ACFA200906AFD /* RLObjLearnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4BE1F9ACFA200906AFD /* RLObjLearnTests.m */; };
 		4C5EF4CA1F9ACFA300906AFD /* RLObjLearnUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4C91F9ACFA300906AFD /* RLObjLearnUITests.m */; };
@@ -21,6 +20,7 @@
 		4C5EF4E21FA7478B00906AFD /* RLPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4E11FA7478B00906AFD /* RLPinAnnotation.m */; };
 		4CBE18561FC15D6700ED19E3 /* RLReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE18541FC15D6700ED19E3 /* RLReminderViewController.m */; };
 		4CBE185B1FC1604E00ED19E3 /* RLReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBE185A1FC1604E00ED19E3 /* RLReminderViewController.xib */; };
+		4CBE185D1FC1796700ED19E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CBE185C1FC1796700ED19E3 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,6 @@
 		4C5EF4A71F9ACFA200906AFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4C5EF4A81F9ACFA200906AFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4C5EF4AE1F9ACFA200906AFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4C5EF4B01F9ACFA200906AFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C5EF4B31F9ACFA200906AFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C5EF4B51F9ACFA200906AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C5EF4BA1F9ACFA200906AFD /* RLObjLearnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RLObjLearnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +66,7 @@
 		4CBE18531FC15D6700ED19E3 /* RLReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLReminderViewController.h; sourceTree = "<group>"; };
 		4CBE18541FC15D6700ED19E3 /* RLReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLReminderViewController.m; sourceTree = "<group>"; };
 		4CBE185A1FC1604E00ED19E3 /* RLReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLReminderViewController.xib; sourceTree = "<group>"; };
+		4CBE185C1FC1796700ED19E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +128,7 @@
 		4C5EF4A31F9ACFA200906AFD /* RLObjLearn */ = {
 			isa = PBXGroup;
 			children = (
+				4CBE185C1FC1796700ED19E3 /* Assets.xcassets */,
 				4C5305EE1FB19C3E00539D8B /* ViewController */,
 				4C5EF4E01FA7478B00906AFD /* RLPinAnnotation.h */,
 				4C5EF4E11FA7478B00906AFD /* RLPinAnnotation.m */,
@@ -138,7 +139,6 @@
 				4C5EF4A71F9ACFA200906AFD /* AppDelegate.h */,
 				4C5EF4A81F9ACFA200906AFD /* AppDelegate.m */,
 				4C5EF4AD1F9ACFA200906AFD /* Main.storyboard */,
-				4C5EF4B01F9ACFA200906AFD /* Assets.xcassets */,
 				4C5EF4B21F9ACFA200906AFD /* LaunchScreen.storyboard */,
 				4C5EF4B51F9ACFA200906AFD /* Info.plist */,
 				4C5EF4A41F9ACFA200906AFD /* Supporting Files */,
@@ -307,7 +307,7 @@
 			files = (
 				4CBE185B1FC1604E00ED19E3 /* RLReminderViewController.xib in Resources */,
 				4C5EF4B41F9ACFA200906AFD /* LaunchScreen.storyboard in Resources */,
-				4C5EF4B11F9ACFA200906AFD /* Assets.xcassets in Resources */,
+				4CBE185D1FC1796700ED19E3 /* Assets.xcassets in Resources */,
 				4C5EF4AF1F9ACFA200906AFD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

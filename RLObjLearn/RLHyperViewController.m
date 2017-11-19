@@ -13,9 +13,19 @@
 
 @end
 
-
-
 @implementation RLHyperViewController
+
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(nil!=self){
+        self.tabBarItem.title = @"Hyper View";
+        self.tabBarItem.image = [UIImage imageNamed:@"rotate"];
+        
+    }
+    return self;
+}
+
+
 
 -(void)loadView{
     CGRect targetFrame = [UIScreen mainScreen].bounds;

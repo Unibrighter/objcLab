@@ -16,6 +16,16 @@
 
 @implementation RLReminderViewController
 
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(nil!=self){
+        self.tabBarItem.title = @"Reminder View";
+        self.tabBarItem.image = [UIImage imageNamed:@"timer"];
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

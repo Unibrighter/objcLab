@@ -24,7 +24,7 @@
 	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //	[self slideView];
 //	[self freeCameraView];
-    [self hyperViewControllerAndReminderController];
+    [self tabViewController];
 	
 	return YES;
 }
@@ -57,13 +57,16 @@
 }
 
 #pragma mark - UIViewController Ex
--(void)hyperViewControllerAndReminderController{
+-(void)tabViewController{
     
     RLHyperViewController * hyperVC = [[RLHyperViewController alloc]init];
     
     RLReminderViewController * reminderVC = [[RLReminderViewController alloc] initWithNibName:@"RLReminderViewController" bundle:[NSBundle mainBundle]];
-    [self.window setRootViewController:reminderVC];
-    [self.window makeKeyAndVisible];
+    
+    UITabBarController * tabViewController = [[UITabBarController alloc] init];
+    tabViewController.viewControllers = @[hyperVC,reminderVC];
+
+    [self.window setRootViewController:tabViewController];
 }
 
 
