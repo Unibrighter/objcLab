@@ -22,10 +22,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //	[self slideView];
 //	[self freeCameraView];
-    [self tabViewController];
+//    [self tabViewController];
 
 	return YES;
 }

@@ -15,6 +15,10 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerTopOffsetConstraint;
 @property (weak, nonatomic) IBOutlet MKMapView *mainMapView;
+
+@property RLPinAnnotation * tmpAnnotation;
+
+
 @property CGFloat originalTopOffsetValue;
 @end
 
@@ -40,6 +44,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - IBAction
 - (IBAction)comeOutBtnClicked:(id)sender {
 	_containerTopOffsetConstraint.active = YES;
 	_containerTopOffsetConstraint.constant = 200;
@@ -48,8 +54,12 @@
 	}];
 	
 }
+- (IBAction)showInCenterBtnClicked:(id)sender {
+    
+    
+}
 
-#pragma - Map Annotation
+#pragma mark - Map Annotation
 - (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
 	MKAnnotationView * view = [mapView dequeueReusableAnnotationViewWithIdentifier:@"droppedPin"];
 	RLPinAnnotation * rlAnnotation = (RLPinAnnotation *) annotation;
@@ -57,7 +67,7 @@
 		view.annotation = rlAnnotation;
 	}else{
 		view = rlAnnotation.annotationView;
-	}
+	}	
 	view.draggable = YES;
 	return view;
 }
@@ -105,17 +115,27 @@
 didChangeDragState:(MKAnnotationViewDragState)newState
    fromOldState:(MKAnnotationViewDragState)oldState
 {
-	if (newState == MKAnnotationViewDragStateEnding)
-	{
-		CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
-		NSLog(@"Pin dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
-	}
+    if (newState == MKAnnotationViewDragStateStarting)
+    {
+        annotationView.dragState = MKAnnotationViewDragStateDragging;
+    }
+    else if (newState == MKAnnotationViewDragStateEnding || newState == MKAnnotationViewDragStateCanceling)
+    {
+        CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
+//        _tmpAnnotation.coordinate = droppedAt;
+        NSLog(@"Pin dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
+        [self.mainMapView setCenterCoordinate:droppedAt];
+        
+        //This has to be put at the last of this if-section
+        //Otherwise, the pin will not go together with the mapView when it's dragged around
+        annotationView.dragState = MKAnnotationViewDragStateNone;
+    }
 }
 
 
 -(void)loadMapContent{
-	RLPinAnnotation * tmpAnnotation = [[RLPinAnnotation alloc] initWithCoordinate2D:CLLocationCoordinate2DMake(-35,144) Title:@"heck" andSubtitle:@"dick"];
-	[_mainMapView addAnnotation:tmpAnnotation];
+	_tmpAnnotation = [[RLPinAnnotation alloc] initWithCoordinate2D:CLLocationCoordinate2DMake(-35,144) Title:@"heck" andSubtitle:@"dick"];
+	[_mainMapView addAnnotation:_tmpAnnotation];
 	_mainMapView.delegate = self;
 }
 
