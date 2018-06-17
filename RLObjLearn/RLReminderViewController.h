@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@import UserNotifications;
 
-@interface RLReminderViewController : UIViewController
+@protocol RLThemeColorDemonstrator <NSObject>
 
+- (void)demonstrateThemeColor:(UIColor *)themeColor;
+
+@end
+
+
+
+@interface RLReminderViewController : UIViewController <UNUserNotificationCenterDelegate>
+@property (weak, nonatomic) IBOutlet UISegmentedControl *themeColorSegmentControll;
+@property id<RLThemeColorDemonstrator> delegate;
 @end

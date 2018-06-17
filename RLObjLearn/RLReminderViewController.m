@@ -9,9 +9,12 @@
 #import "RLReminderViewController.h"
 #import <UserNotifications/UserNotifications.h>
 
+
+
 @interface RLReminderViewController ()<UNUserNotificationCenterDelegate>
 
 @property (weak,nonatomic) IBOutlet UIDatePicker* datePicker;
+
 
 @end
 
@@ -34,6 +37,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:60];
+    self.themeColorSegmentControll.selectedSegmentIndex = UISegmentedControlNoSegment;
 }
 
 
@@ -61,7 +65,8 @@
     
     // Deliver the notification in five seconds.
     UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
-                                                  triggerWithTimeInterval:5 repeats:NO];
+                                                triggerWithTimeInterval:[self.datePicker.date timeIntervalSinceNow] repeats:NO];
+    
     UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond"
                                                                           content:content trigger:trigger];
     
@@ -69,6 +74,28 @@
     UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
     [center addNotificationRequest:request withCompletionHandler:nil];
     
+}
+
+
+- (IBAction)onValueChanged:(id)sender {
+    UIColor *themeColor;
+    switch (self.themeColorSegmentControll.selectedSegmentIndex) {
+        case 0:
+            themeColor = [UIColor redColor];
+            break;
+        case 1:
+            themeColor = [UIColor yellowColor];
+            break;
+        case 2:
+            themeColor = [UIColor blueColor];
+            break;
+        default:
+            break;
+    }
+    if (self.delegate){
+        [self.delegate demonstrateThemeColor:themeColor];
+    }
+    self.themeColorSegmentControll.selectedSegmentIndex = UISegmentedControlNoSegment;
 }
 
 @end

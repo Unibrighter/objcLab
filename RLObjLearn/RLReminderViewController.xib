@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RLReminderViewController">
             <connections>
                 <outlet property="datePicker" destination="bPY-RB-u5l" id="EYp-4H-G0Q"/>
+                <outlet property="themeColorSegmentControll" destination="Yi9-8E-y6C" id="2kD-qb-38E"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PVq-nT-iqf"/>
             </connections>
         </placeholder>
@@ -33,10 +34,25 @@
                         <action selector="remindBtnClicked:" destination="-1" eventType="touchUpInside" id="wTz-Dp-bgl"/>
                     </connections>
                 </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Yi9-8E-y6C">
+                    <rect key="frame" x="107.5" y="68" width="161" height="29"/>
+                    <segments>
+                        <segment title="Red"/>
+                        <segment title="Yellow"/>
+                        <segment title="Blue"/>
+                    </segments>
+                    <connections>
+                        <action selector="down:" destination="-1" eventType="touchDown" id="yyk-H2-nwI"/>
+                        <action selector="onValueChanged:" destination="-1" eventType="valueChanged" id="NJ4-Jq-PRP"/>
+                        <action selector="touchUpInside:" destination="-1" eventType="touchUpInside" id="v00-nt-rpu"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="iWD-5L-TEi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3eC-e2-LNT"/>
+                <constraint firstItem="Yi9-8E-y6C" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="68" id="Xub-Ma-Ztm"/>
+                <constraint firstItem="Yi9-8E-y6C" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="kGw-jA-XGJ"/>
                 <constraint firstItem="bPY-RB-u5l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ogm-OB-hjg"/>
                 <constraint firstAttribute="trailing" secondItem="bPY-RB-u5l" secondAttribute="trailing" id="ua2-wI-zAD"/>
                 <constraint firstItem="iWD-5L-TEi" firstAttribute="top" secondItem="bPY-RB-u5l" secondAttribute="bottom" constant="61" id="vAO-Z3-n3f"/>

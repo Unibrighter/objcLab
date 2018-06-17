@@ -10,7 +10,7 @@
 #import "RLHyperView.h"
 
 @interface RLHyperViewController()
-
+@property (strong, nonatomic) UIColor *themeColor;
 @end
 
 @implementation RLHyperViewController
@@ -32,6 +32,18 @@
     RLHyperView * backgroundView = [[RLHyperView alloc]initWithFrame:targetFrame];
     
     self.view = backgroundView;
+}
+
+- (void)setThemeColor:(UIColor *)themeColor{
+    _themeColor = themeColor;
+    if (self.view && [self.view isKindOfClass:[RLHyperView class]]){
+        
+        ((RLHyperView *)self.view).themeColor = themeColor;
+    }
+}
+- (void)demonstrateThemeColor:(UIColor *)color{
+    self.themeColor = color;
+    [self.view setNeedsDisplay];
 }
 
 @end

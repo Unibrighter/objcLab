@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-@interface RLHyperViewController : UIViewController
+#import "RLReminderViewController.h"
+@interface RLHyperViewController : UIViewController <RLThemeColorDemonstrator>
 
 @end

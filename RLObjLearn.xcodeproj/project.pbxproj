@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0711D720D50F10003C58E8 /* UIColor+CustomMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0711D620D50F10003C58E8 /* UIColor+CustomMethod.m */; };
+		4C44C2BF1FC2E67100F5DC6F /* RLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C44C2BE1FC2E67100F5DC6F /* RLTabBarController.m */; };
 		4C5305F11FB19C6000539D8B /* RLHyperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5305F01FB19C6000539D8B /* RLHyperViewController.m */; };
 		4C5EF4A61F9ACFA200906AFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4A51F9ACFA200906AFD /* main.m */; };
 		4C5EF4A91F9ACFA200906AFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5EF4A81F9ACFA200906AFD /* AppDelegate.m */; };
@@ -41,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C0711D520D50F10003C58E8 /* UIColor+CustomMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomMethod.h"; sourceTree = "<group>"; };
+		4C0711D620D50F10003C58E8 /* UIColor+CustomMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomMethod.m"; sourceTree = "<group>"; };
+		4C44C2BD1FC2E67100F5DC6F /* RLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLTabBarController.h; sourceTree = "<group>"; };
+		4C44C2BE1FC2E67100F5DC6F /* RLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLTabBarController.m; sourceTree = "<group>"; };
 		4C5305EF1FB19C6000539D8B /* RLHyperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLHyperViewController.h; sourceTree = "<group>"; };
 		4C5305F01FB19C6000539D8B /* RLHyperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLHyperViewController.m; sourceTree = "<group>"; };
 		4C5EF4A11F9ACFA200906AFD /* RLObjLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RLObjLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +106,8 @@
 			children = (
 				4CBE18521FC15D2F00ED19E3 /* ReminderViewController */,
 				4CBE18511FC15D2100ED19E3 /* HyperViewController */,
+				4C44C2BD1FC2E67100F5DC6F /* RLTabBarController.h */,
+				4C44C2BE1FC2E67100F5DC6F /* RLTabBarController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -142,6 +150,8 @@
 				4C5EF4B21F9ACFA200906AFD /* LaunchScreen.storyboard */,
 				4C5EF4B51F9ACFA200906AFD /* Info.plist */,
 				4C5EF4A41F9ACFA200906AFD /* Supporting Files */,
+				4C0711D520D50F10003C58E8 /* UIColor+CustomMethod.h */,
+				4C0711D620D50F10003C58E8 /* UIColor+CustomMethod.m */,
 			);
 			path = RLObjLearn;
 			sourceTree = "<group>";
@@ -334,10 +344,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C5EF4DC1FA5F00700906AFD /* RLContainerDrawerMainVC.m in Sources */,
+				4C0711D720D50F10003C58E8 /* UIColor+CustomMethod.m in Sources */,
 				4C5EF4A91F9ACFA200906AFD /* AppDelegate.m in Sources */,
 				4CBE18561FC15D6700ED19E3 /* RLReminderViewController.m in Sources */,
 				4C5EF4E21FA7478B00906AFD /* RLPinAnnotation.m in Sources */,
 				4C5EF4A61F9ACFA200906AFD /* main.m in Sources */,
+				4C44C2BF1FC2E67100F5DC6F /* RLTabBarController.m in Sources */,
 				4C5EF4D91F9AD70C00906AFD /* RLHyperView.m in Sources */,
 				4C5305F11FB19C6000539D8B /* RLHyperViewController.m in Sources */,
 			);

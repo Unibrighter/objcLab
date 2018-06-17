@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RLHyperView : UIView
-
+@property (strong, nonatomic) UIColor *themeColor;
 @end

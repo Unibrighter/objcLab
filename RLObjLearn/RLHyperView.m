@@ -7,6 +7,7 @@
 //
 
 #import "RLHyperView.h"
+#import "UIColor+CustomMethod.h"
 
 @interface RLHyperView ()
 
@@ -26,16 +27,27 @@
 	
 	//1.Inner Circle - Apple in the eye
 	CGPoint centerPoint = self.center;
-	CGFloat radius = _boundingBoxHeight / 10;
 	
-	UIBezierPath * innerPie = [[UIBezierPath alloc] init];
 	
-	for(;radius <= _boundingBoxWidth;radius += _boundingBoxHeight /10 ){
+    [targetColor setStroke];
+	for(CGFloat radius = _boundingBoxHeight;radius >= _boundingBoxWidth/10;radius -= _boundingBoxHeight /10 ){
+        UIBezierPath * innerPie = [[UIBezierPath alloc] init];
+        innerPie.lineWidth = 5.0;
 		[innerPie moveToPoint:CGPointMake(centerPoint.x-radius,centerPoint.y)];
 		[innerPie addArcWithCenter:centerPoint radius:radius startAngle: -M_PI endAngle:M_PI clockwise:YES];
+        [innerPie closePath];
+        if (self.themeColor){
+            [self.themeColor setFill];
+        }else{
+            UIColor *randomColor = [UIColor randomColor];
+            [randomColor setFill];
+        }
+        [innerPie fill];
+        [innerPie stroke];
 	}
-	[targetColor setStroke];
-	[innerPie stroke];
+    //reset the theme color
+    self.themeColor = nil;
+    
 	
 	//2. gradiant
 	CGContextRef currentContext = UIGraphicsGetCurrentContext();
@@ -45,7 +57,7 @@
 	[gradientPath moveToPoint:CGPointMake(0.5*rect.size.width , 0.333*rect.size.height)];
 	[gradientPath addLineToPoint:CGPointMake(0.25*rect.size.width , 0.667*rect.size.height)];
 	[gradientPath addLineToPoint:CGPointMake(0.75*rect.size.width , 0.667*rect.size.height)];
-	[gradientPath addLineToPoint:CGPointMake(0.5*rect.size.width , 0.333*rect.size.height)];
+    [gradientPath closePath];
 	[gradientPath addClip];
 	if(!_gradient){
 		_gradient = [self getRandomGradientRef];
@@ -87,14 +99,6 @@
 	CGFloat components [8] = {r1,g1,b1,1,r2,g2,b2,1};
 	CGGradientRef gradient = CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(), components , location, 2);
 	return gradient;
-}
-
-
--(UIColor *)getRandomColor{
-	CGFloat r = arc4random() % 100 /100;
-	CGFloat g = arc4random() % 100 /100;
-	CGFloat b = arc4random() % 100 /100;
-	return [UIColor colorWithRed:r green:g blue:b alpha:1];
 }
 
 

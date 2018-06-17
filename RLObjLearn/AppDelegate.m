@@ -11,6 +11,10 @@
 #import "RLContainerDrawerMainVC.h"
 #import "RLHyperViewController.h"
 #import "RLReminderViewController.h"
+#import "RLTabBarController.h"
+
+
+
 #import <UserNotifications/UserNotifications.h>
 
 @import MapKit;
@@ -22,10 +26,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //	[self slideView];
 //	[self freeCameraView];
-//    [self tabViewController];
+    [self tabViewController];
 
 	return YES;
 }
@@ -59,8 +63,6 @@
 
 #pragma mark - UIViewController Ex
 -(void)tabViewController{
-
-    
     RLHyperViewController * hyperVC = [[RLHyperViewController alloc]init];
     
     RLReminderViewController * reminderVC = [[RLReminderViewController alloc] initWithNibName:@"RLReminderViewController" bundle:[NSBundle mainBundle]];
@@ -69,12 +71,12 @@
                           completionHandler:^(BOOL granted, NSError * _Nullable error) {
                               if (!error) {
                                   NSLog(@"request authorization succeeded!");
-                                  
                                   center.delegate = reminderVC;
                               }
                           }];
+    reminderVC.delegate = hyperVC;
     
-    UITabBarController * tabViewController = [[UITabBarController alloc] init];
+    RLTabBarController * tabViewController = [[RLTabBarController alloc] init];
     tabViewController.viewControllers = @[hyperVC,reminderVC];
 
     [self.window setRootViewController:tabViewController];
