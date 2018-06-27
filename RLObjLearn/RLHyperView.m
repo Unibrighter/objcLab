@@ -26,8 +26,8 @@
 	UIColor * targetColor = [UIColor colorWithRed:215/256.0 green:171/256.0 blue:74/256.0 alpha:1.0];
 	
 	//1.Inner Circle - Apple in the eye
-	CGPoint centerPoint = self.center;
-	
+	CGPoint centerPoint = CGPointMake(rect.size.width*0.5, rect.size.height*0.5);
+    NSLog(@"%@", NSStringFromCGRect(self.frame));
 	
     [targetColor setStroke];
 	for(CGFloat radius = _boundingBoxHeight;radius >= _boundingBoxWidth/10;radius -= _boundingBoxHeight /10 ){
@@ -82,9 +82,9 @@
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-	NSLog(@"View touched!");
-	_gradient = [self getRandomGradientRef];
-	[self setNeedsDisplay];
+    NSLog(@"View touched!");
+    _gradient = [self getRandomGradientRef];
+    [self setNeedsDisplay];
 }
 
 -(CGGradientRef)getRandomGradientRef{
