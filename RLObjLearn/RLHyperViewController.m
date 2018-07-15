@@ -9,7 +9,10 @@
 #import "RLHyperViewController.h"
 #import "RLHyperView.h"
 
-@interface RLHyperViewController() <UIScrollViewDelegate>
+@interface RLHyperViewController() <UIScrollViewDelegate, UITextFieldDelegate>
+#define INPUT_TEXT_FIELD_WIDTH 180
+#define INPUT_TEXT_FIELD_HEIGHT 60
+#define LABEL_COUNT 10
 @property (strong, nonatomic) UIColor *themeColor;
 @property (strong, nonatomic) RLHyperView *hyperView;
 @end
@@ -38,6 +41,19 @@
     zoomContainer.maximumZoomScale = 2;
     zoomContainer.minimumZoomScale = 1;
     self.view = zoomContainer;
+    
+    //input text field
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0,0,INPUT_TEXT_FIELD_WIDTH,INPUT_TEXT_FIELD_HEIGHT)];
+    textField.textAlignment = NSTextAlignmentCenter;
+    textField.placeholder = @"WTFWTF!!!";
+    textField.returnKeyType = UIReturnKeyDone;
+    
+    textField.center = CGPointMake(self.view.center.x, CGRectGetHeight(targetFrame) *0.1);
+    [self.view addSubview:textField];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)]];
+    
+    __weak typeof (self) weakSelf = self;
+    textField.delegate = weakSelf;
 }
 
 - (void)setThemeColor:(UIColor *)themeColor{
@@ -46,6 +62,7 @@
         ((RLHyperView *)self.hyperView).themeColor = themeColor;
     }
 }
+
 - (void)demonstrateThemeColor:(UIColor *)color{
     self.themeColor = color;
     [self.view setNeedsDisplay];
@@ -61,6 +78,39 @@
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale{
     scrollView.zoomScale = MAX(1.0,scale);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    [textField resignFirstResponder];
+    
+    UIInterpolatingMotionEffect *horizontalEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    UIInterpolatingMotionEffect *verticalEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    
+    
+    for (NSUInteger i=0; i<LABEL_COUNT; i++){
+        UILabel *labelWithRandomPosition = [[UILabel alloc] init];
+        labelWithRandomPosition.text = textField.text;
+        [labelWithRandomPosition sizeToFit];
+        CGRect frame = labelWithRandomPosition.frame;
+        frame.origin = [self randomRectWithinArea:self.view.bounds withSize:labelWithRandomPosition.frame.size];
+        labelWithRandomPosition.frame = frame;
+        [labelWithRandomPosition addMotionEffect:horizontalEffect];
+        [labelWithRandomPosition addMotionEffect:verticalEffect];
+        [self.view addSubview:labelWithRandomPosition];
+    }
+    
+}
+
+- (CGPoint)randomRectWithinArea:(CGRect)restrictedArea withSize:(CGSize)size{
+    NSInteger x = arc4random()% (int)(restrictedArea.size.width-size.width)+restrictedArea.origin.x;
+    NSInteger y = arc4random()% (int)(restrictedArea.size.height-size.height)+restrictedArea.origin.y;
+    return CGPointMake(x, y);
 }
 
 @end
